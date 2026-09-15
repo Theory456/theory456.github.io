@@ -1,0 +1,218 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Antimatter Dimensions Endgame But The Asteroid Field Is Overpowered</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<script src="script.js"></script>
+		<div id="top">
+			<div id="amContainer">
+				You have <span id="am"></span> antimatter.
+				<br>You are getting <span id="amps"></span> antimatter per second.
+				<br><br>Antimatter excavation from asteroids is nerfed based on matter: /<span id="amn"></span>
+			</div>
+			<div id="mContainer">
+				You have <span id="m"></span> matter.
+				<br>You are getting <span id="mps"></span> matter per second.
+				<br><br>Matter excavation from asteroids is nerfed based on total mass: /<span id="mn"></span>
+			</div>
+		</div>
+		<div id="tabButtons">
+			<div class="tabButton" onclick="switchTab(0)">Dimensions</div>
+			<div class="tabButton" onclick="switchTab(1)">Modules</div>
+			<div class="tabButton" onclick="switchTab(2)">Reactor</div>
+			<div class="tabButton hidden" id="paradoxTabButton" onclick="switchTab(3)">Paradox</div>
+			<div class="tabButton hidden" id="automationTabButton" onclick="switchTab(4)">Automation</div>
+			<div class="tabButton" onclick="switchTab(5)">Options</div>
+		</div>
+		<div id="tab0" class="hidden">
+			<div class="pb-container">
+				<div class="progress-bar">
+					<div id="percamPB"></div>
+				</div>
+			</div>
+			<div>Progress to <span class="infinity">Infinity</span></div>
+			<br><br>
+			<table id="dimensionsContainer" class="dimensions">
+				<tr>
+					<td>1st Antimatter Dimension<br><span>×1.00</span></td>
+					<td>0</td>
+					<td onclick="">Buy 1<br>Cost: 10 AM</td>
+				</tr>
+				<tr>
+					<td>2nd Antimatter Dimension<br><span>×1.00</span></td>
+					<td>0</td>
+					<td onclick="">Buy 1<br>Cost: 100 AM</td>
+				</tr>
+				<tr>
+					<td>3rd Antimatter Dimension<br><span>×1.00</span></td>
+					<td>0</td>
+					<td onclick="">Buy 1<br>Cost: 10 K AM</td>
+				</tr>
+				<tr>
+					<td>4th Antimatter Dimension<br><span>×1.00</span></td>
+					<td>0</td>
+					<td onclick="">Buy 1<br>Cost: 1 M AM</td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab1">
+			<div class="pb-container">
+				<div class="progress-bar">
+					<div id="percmPB"></div>
+				</div>
+			</div>
+			<div>Progress to <span class="paradox">Paradox</span></div>
+			<table id="muContainer" class="repeatable">
+				<tr id="mu0">
+					<td>Muscler [<span id="muAmount0"></span>]</td>
+					<td onclick="buyMu(0)">Cost: <span id="muCost0"></span> matter</td>
+					<td onclick="maxMu(0)">Buy Max</td>
+					<td>
+						Power: +<span id="muPower0"></span>
+						<br>Effect: ×<span id="muMult0"></span> to matter production
+					</td>
+				</tr>
+				<tr id="mu1">
+					<td>Booster [<span id="muAmount1"></span>]</td>
+					<td onclick="buyMu(1)">Cost: <span id="muCost1"></span> matter</td>
+					<td onclick="maxMu(1)">Buy Max</td>
+					<td>
+						Power: ×<span id="muPower1"></span>
+						<br>Effect: ×<span id="muMult1"></span> to Muscler's added effect
+
+					</td>
+				</tr>
+				<tr id="mu2">
+					<td>Stronger [<span id="muAmount2"></span>]</td>
+					<td onclick="buyMu(2)">Cost: <span id="muCost2"></span> matter</td>
+					<td onclick="maxMu(2)">Buy Max</td>
+					<td>
+						Power: ^<span id="muPower2"></span>
+						<br>Effect: ^<span id="muMult2"></span> to Booster's added effect
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab2" class="hidden">
+			<br>You have <span id="en"></span> stable energy and <span id="ren"></span> reactor energy.
+			<br>Stable energy raises all Starship excavation nerfs and the cost scalings of the first two mass upgrades to ^<span id="enBuff"></span>
+			<br>but increases the requirement for next stable energy reset by ×<span id="enNerf"></span>
+			<div id="annihilator">
+				<div id="an0" onclick="annihilate(0)">
+					Reset antimatter for energy equal in amount to<br>your current matter if it exceeds said amount
+					<br>with a minimum requirement of <span id="err0"></span> antimatter
+					<br>Currently requires at least <span id="an1Limit"></span> antimatter
+				</div>
+				<div id="an1" onclick="annihilate(1)">
+					Reset matter for energy equal in amount to<br> your current antimatter if it exceeds said amount
+					<br>with a minimum requirement of <span id="err1"></span> matter
+					<br>Currently requires at least <span id="an2Limit"></span> matter
+				</div>
+			</div>
+			<br>The above effects are capped at 2.00 u effective stable energy,
+			<br>and stable energy itself is capped at <span id="enCap"></span>.
+			<br>Reactor energy is produced by stable energy every tick.
+			<table id="reuContainer" class="repeatable">
+				<tr id="reu0">
+					<td>Tickspeed [<span id="reuAmount0"></span>]</td>
+					<td onclick="buyReu(0)">Cost: <span id="reuCost0"></span> reactor energy</td>
+					<td onclick="maxReu(0)">Buy Max</td>
+					<td>
+						Power: ×<span id="reuPower0"></span>
+						<br>Effect: ×<span id="reuMult0"></span> to Starship excavation
+					</td>
+				</tr>
+				<tr id="reu1">
+					<td>Reactor Core [<span id="reuAmount1"></span>]</td>
+					<td onclick="buyReu(1)">Cost: <span id="reuCost1"></span> reactor energy</td>
+					<td onclick="maxReu(1)">Buy Max</td>
+					<td>
+						Power: ×<span id="reuPower1"></span>
+						<br>Effect: ×<span id="reuMult1"></span> to Tickspeed's power
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab3" class="hidden">
+			<br>You have <span id="pe"></span> paradox energy.
+			<div id="paradoxReset" onclick="pxReset()">
+				Reset matter, antimatter, all Modules and the Reactor
+				<br>Convert earned stable energy into paradox energy
+				<br>Requires 10.00 matter and 2.00 u stable energy
+			</div>
+			<table id="puContainer">
+				<tr>
+					<td id="pu00" onclick="buyPxu(0, 0)">
+						Gain a multiplier to Muscler's Power<br>for every 10 Muscler you own.
+						<br>Currently: ×<span id="pxuMult0-0"></span> (Next: ×<span id="pxuMultNext0-0"></span>)
+						<br>Cost: <span id="pxuCost0-0"></span> paradox energy
+					</td>
+					<td id="pu01" onclick="buyPxu(0, 1)">
+						Increase the base antimatter excavation rate.
+						<br>Currently: ×<span id="pxuMult0-1"></span> (Next: ×<span id="pxuMultNext0-1"></span>)
+						<br>Cost: <span id="pxuCost0-1"></span> paradox energy
+					</td>
+					<td id="pu02" onclick="buyPxu(0, 2)">
+						Boost reactor energy gain.
+						<br>Currently: ×<span id="pxuMult0-2"></span> (Next: ×<span id="pxuMultNext0-2"></span>)
+						<br>Cost: <span id="pxuCost0-2"></span> paradox energy
+					</td>
+					<td id="pu03" onclick="buyPxu(0, 3)">
+						Improve Tickspeed's base Power.
+						<br>Currently: ×<span id="pxuMult0-3"></span> (Next: ×<span id="pxuMultNext0-3"></span>)
+						<br>Cost: <span id="pxuCost0-3"></span> paradox energy
+					</td>
+				</tr>
+				<tr>
+					<td id="pu10" onclick="buyPxu(1, 0)">
+						Increase the amount of stable energy gained from annihilation.
+						<br>Currently: ×<span id="pxuMult1-0"></span> (Next: ×<span id="pxuMultNext1-0"></span>)
+						<br>Cost: <span id="pxuCost1-0"></span> paradox energy
+					</td>
+					<td id="pu11" onclick="buyPxu(1, 1)">
+						Antimatter boosts matter production.
+						<br>Currently: ×<span id="pxuMult1-1"></span> (Next: ×<span id="pxuMultNext1-1"></span>)
+						<br>Cost: <span id="pxuCost1-1"></span> paradox energy
+					</td>
+					<td id="pu12" onclick="buyPxu(1, 2)">
+						Reduce the base of the excavation nerf on matter production.
+						<br>Currently: ×<span id="pxuMult1-2"></span> (Next: ×<span id="pxuMultNext1-2"></span>)
+						<br>Cost: <span id="pxuCost1-2"></span> paradox energy
+					</td>
+					<td id="pu13" onclick="buyPxu(1, 3)">
+						Gain 1 extra second of production after reaching 10 matter for every tier bought.
+						<br>Currently: <span id="extras"></span>s / <span id="pxuMult1-3"></span>s left
+						<br>Cost: <span id="pxuCost1-3"></span> paradox energy
+					</td>
+				</tr>
+				<tr>
+					<td id="pu20" onclick="buyPxu(2, 0)">
+						Increase the limit of stable energy owned,<br>but not the limit of Reactor effects.
+						<br>Currently: ×<span id="pxuMult2-0"></span> (Next: ×<span id="pxuMultNext2-0"></span>)
+						<br>Cost: <span id="pxuCost2-0"></span> paradox energy
+					</td>
+					<td id="pu21" onclick="buyPxu(2, 1)">
+						Stable energy also boosts matter<br>production at a reduced rate.
+						<br>Currently: ×<span id="pxuMult2-1"></span> (Next: ×<span id="pxuMultNext2-1"></span>)
+						<br>Cost: <span id="pxuCost2-1"></span> paradox energy
+					</td>
+					<td id="pu22" onclick="buyPxu(2, 2)">
+						Unspent paradox energy boosts reactor energy gain.
+						<br>Currently: ×<span id="pxuMult2-2"></span> (Next: ×<span id="pxuMultNext2-2"></span>)
+						<br>Cost: <span id="pxuCost2-2"></span> paradox energy
+					</td>
+					<td id="pu23" onclick="buyPxu(2, 3)">
+						Tickspeed also affects reactor energy gain.
+						<br>Cost: <span id="pxuCost2-3"></span> paradox energy
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab4" class="hidden">
+			<!-- Muscler automation should take 11.1 matter to purchase, but not implemented right now. -->
+		</div>
+		<div id="tab5" class="hidden"></div>
+	</body>
+</html> 

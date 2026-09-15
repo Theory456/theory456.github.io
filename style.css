@@ -1,0 +1,376 @@
+@font-face {
+    font-family: 'Cascadia Next';
+    src: url('CascadiaNextSC.wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+html {
+    background: black;
+    color: #FFFFFFE0;
+    font: 15px 'Cascadia Next';
+}
+
+span#am {
+    color: #FF6060;
+    font-size: 35px;
+}
+
+span#m {
+    color: #60FFFF;
+    font-size: 35px;
+}
+
+div#top {
+    display: flex;
+    justify-content: space-around;
+}
+
+div#top div {
+    text-align: center;
+}
+
+/* Tab buttons */
+
+div#tabButtons {
+    justify-content: center;
+    display: flex;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+div#tabButtons div {
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: 3px;
+    padding: 1px 3px 1px 3px;
+}
+
+div#tabButtons div:nth-child(3) {
+    border-color: yellow;
+    color: yellow;
+    background: radial-gradient(circle, #404018, black);
+}
+
+div#tabButtons div:nth-child(4) {
+    border-color: magenta;
+    color: magenta;
+    background: #200C20;
+}
+
+/* Repeatable upgrade tables, note: not Antimatter Dimensions */
+
+table.repeatable {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    text-align: center;
+}
+
+table.repeatable tr {
+    height: 55px;
+}
+
+table.repeatable td {
+    padding: 4px 15px;
+    vertical-align: middle;
+}
+
+/* Upgrade name */
+table.repeatable td:first-child {
+    width: 20%;
+    font-size: 17px;
+}
+
+/* Purchase and Buy Max button */
+table.repeatable td:nth-child(2), table.repeatable td:nth-child(3) {
+    border: 2px solid white;
+    border-radius: 6px;
+    background: #404040;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+table.repeatable td:nth-child(2) {
+    width: 30%;
+}
+
+table.repeatable td:nth-child(3) {
+    width: 10%;
+}
+
+table.repeatable td:nth-child(2):hover, table.repeatable td:nth-child(3):hover {
+    background: #606060;
+}
+
+@property --reactor-grad-start {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #154015;
+}
+@property --reactor-grad-end {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: black;
+}
+
+
+#reu0 td:nth-child(2), #reu0 td:nth-child(3) {
+    border: 2px solid #60FF60;
+    color: #60FF60;
+    border-radius: 6px;
+    background: radial-gradient(circle, var(--reactor-grad-start), var(--reactor-grad-end));
+    transition: --reactor-grad-start 0.15s ease, --reactor-grad-end 0.15s ease;
+    cursor: pointer;
+}
+
+#reu0 td:nth-child(2):hover, #reu0 td:nth-child(3):hover {
+  --reactor-grad-start: black;
+  --reactor-grad-end: #30803080;
+}
+
+/* Power/effect description */
+table.repeatable td:nth-child(4) {
+    width: 40%;
+}
+
+/* Reactor tab, Stable Energy and Annihilator */
+
+span#en {
+    color: #FFFF60;
+    font-size: 20px;
+}
+
+span#ren {
+    color: #60FF60;
+    font-size: 20px;
+}
+
+div#tab2 {
+    text-align: center;
+}
+
+div#annihilator {
+    display: flex;
+    justify-content: center;
+}
+
+div#annihilator div {
+    border-radius: 6px;
+    text-align: center;
+    padding: 6px;
+    margin: 10px;
+    min-width: 25%;
+}
+
+div#an0 {
+    border: 3px solid #FF6060;
+    color: #FF6060;
+    background: radial-gradient(circle, #401818, black);
+}
+
+div#an1 {
+    border: 3px solid #60FFFF;
+    color: #60FFFF;
+    border-radius: 6px;
+    background: radial-gradient(circle, #186060, black);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Wow, dimensions. */
+
+div#tab0, div#tab1 {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+span.progress {
+    font-size: 20px;
+}
+
+table.dimensions {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    text-align: center;
+}
+
+table.dimensions tr {
+    height: 50px;
+}
+
+table.dimensions tr:nth-child(even) {
+    background: #202020;
+}
+
+table.dimensions td {
+    padding: 4px 15px;
+    vertical-align: middle;
+}
+
+table.dimensions td:first-child {
+    width: 20%;
+    text-align: left;
+}
+
+table.dimensions td:nth-child(2) {
+    width: 60%;
+    font-size: 17px;
+    text-align: left;
+}
+
+table.dimensions td:nth-child(3) {
+    width: 20%;
+    border: 2px solid white;
+    border-radius: 6px;
+    background: #404040;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+table.dimensions td:nth-child(3):hover {
+    background: #606060;
+}
+
+/* Paradox */
+
+.paradox {
+    color: magenta;
+}
+
+.infinity {
+    color: orange;
+}
+
+.pb-container {
+    display: grid;
+    place-items: center;
+}
+
+.pb-container div:first-child {    
+ width: 90%;
+ height: 23px;
+ background-color: #FFFFFF20;
+ overflow: visible;
+}
+
+.pb-container div div {
+    height: 23px;
+ font-size: 18px;
+ vertical-align: middle;
+ transition: width 0.4s ease;
+}
+
+#percamPB {
+ color: #40FF50;
+ background-color: #208028;
+}
+
+#percmPB {
+ color: #FF80FF;
+ background-color: #802080;
+}
+
+div#tab3 {
+    text-align: center;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@property --paradox-grad-start {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #FF00FF40;
+}
+@property --paradox-grad-end {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: black;
+}
+
+div#paradoxReset {
+    font-size: 17px;
+    color: magenta;
+    padding: 5px;
+    margin: 25px auto;
+    text-align: center;
+    border: 3px solid magenta;
+    border-radius: 10px;
+    width: 80%;
+    background: radial-gradient(circle, var(--paradox-grad-start), var(--paradox-grad-end));
+    background-size: 200%;
+    transition: --paradox-grad-start 0.15s ease, --paradox-grad-end 0.15s ease;
+    animation: gradientMove 15s ease infinite;
+}
+
+
+table#puContainer td {
+    border: 2px solid magenta;
+    color: magenta;
+    border-radius: 6px;
+    background: radial-gradient(circle, var(--paradox-grad-start), var(--paradox-grad-end));
+    transition: --paradox-grad-start 0.15s ease, --paradox-grad-end 0.15s ease;
+    cursor: pointer;
+}
+
+table#puContainer td:hover, div#paradoxReset:hover {
+  --paradox-grad-start: #FF00FF60;
+  --paradox-grad-end: #FF00FF40;
+}
+
+table#puContainer {
+    width: 90%;
+    max-width: 1500px;
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 5px 10px;
+    text-align: center;
+    font-size: 13.5px;
+    color: magenta;
+}
+
+table#puContainer tr {
+    height: 100px;
+}
+
+table#puContainer td {
+    border: 2px solid magenta;
+    border-radius: 6px;
+    width: 22.5%;
+    padding: 3px;
+}
+
+table#puContainer td.maxed {
+    color: black;
+    background: #FF80FF;
+}
+
+span#pe {
+    color: #FF60FF;
+    font-size: 20px;
+}
+
+#reu1 td:nth-child(2), #reu1 td:nth-child(3) {
+    border: 2px solid magenta;
+    color: magenta;
+    border-radius: 6px;
+    background: radial-gradient(circle, var(--paradox-grad-start), var(--paradox-grad-end));
+    transition: --paradox-grad-start 0.15s ease, --paradox-grad-end 0.15s ease;
+    cursor: pointer;
+}
+
+#reu1 td:nth-child(2):hover, #reu1 td:nth-child(3):hover {
+  --paradox-grad-start: black;
+  --paradox-grad-end: #FF00FF40;
+}
